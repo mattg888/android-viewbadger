@@ -142,6 +142,7 @@ public class BadgeView extends TextView {
 		LayoutParams lp = target.getLayoutParams();
 		ViewParent parent = target.getParent();
 		FrameLayout container = new FrameLayout(context);
+		container.setClipChildren(false);
 		
 		if (target instanceof TabWidget) {
 			
@@ -163,7 +164,8 @@ public class BadgeView extends TextView {
 			
 			group.removeView(target);
 			group.addView(container, index, lp);
-			
+			group.setClipChildren(false);
+
 			container.addView(target);
 	
 			this.setVisibility(View.GONE);
